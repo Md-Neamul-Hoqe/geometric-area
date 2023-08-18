@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry | Calculate The Area Of A Given Geometry</title>
+
+    <!-- favicon -->
+    <!-- <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"> -->
+
+    <!-- Tailwind CDN link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/tailwindOflineCSS.js"></script>
+
+    <!-- Customised Utilities -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "fruit-red": "#F85459",
+                    },
+                },
+
+                container: {
+                    center: true,
+                },
+            },
+        };
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/d7b7563d24.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="text-base font-inter p-5 sm:p-12">
+    <header id="header-section">
+        <nav
+            class="rounded-lg w-full px-5 sm:px-11 flex justify-between items-center font-inter bg-gradient-to-r from-sky-200  to-sky-50">
+            <div class="font-bold text-5xl py-5">
+                <h1 class="font-bold text-xl md:text-5xl text-gray-800/80">Interactive</h1>
+                <h2 class="font-medium text-lg md:text-4xl text-base-50 text-gray-800/60">Geometry Genius</h2>
+            </div>
+            <button class="py-2 px-5 sm:px-9 rounded bg-sky-600 text-white text-xl font-bold">Blog</button>
+        </nav>
+    </header>
+    <main>
+        <section id="geometry-section">
+            <div class="grid grid-flow-row lg:grid-flow-col gap-6 my-12">
+                <div id="Geometry" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div class="rounded border p-5 md:p-8 2xl:p-11 flex flex-col items-center">
+                        <img class="h-48" src="./images/triangle.png" alt="triangle Geometry">
+                        <h3 class="text-2xl font-bold mt-12 mb-2 text-gray-700">Triangle</h3>
+                        <p class="my-1 text-gray-700">Area (A) = 0.5 x b x h</p>
+                        <div class="my-6">
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="b" type="number"
+                                required name="b" id="baseTriangle">
+                            <label for="b">cm</label>
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="h" type="number"
+                                required name="h" id="heightTriangle">
+                            <label for="h">cm</label>
+                        </div>
+                        <button class="rounded py-4 w-full bg-sky-600 text-white text-xl mt-7"
+                            onclick="calculateTriangleArea()" type="submit">Calculate</button>
+                    </div>
+                    <div class="rounded border p-5 md:p-8 2xl:p-11 flex flex-col items-center">
+                        <img class="h-48" src="./images/rectangle.png" alt="rectangle Geometry">
+                        <h3 class="text-2xl font-bold mt-12 mb-2 text-gray-700">Rectangle</h3>
+                        <p class="my-1 text-gray-700">Area (A) = w x l</p>
+                        <div class="my-6">
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="w" type="number"
+                                required name="w" id="widthRectangle">
+                            <label for="w">cm</label>
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="l" type="number"
+                                required name="l" id="lengthRtrectangle">
+                            <label for="l">cm</label>
+                        </div>
+                        <button class="rounded py-4 w-full bg-sky-600 text-white text-xl mt-7"
+                            onclick="calculateRectangleArea()" type="submit">Calculate</button>
+                    </div>
+                    <div class="rounded border p-5 md:p-8 2xl:p-11 flex flex-col items-center">
+                        <img class="h-48" src="./images/parallelogram.png" alt="parallelogram Geometry">
+                        <h3 class="text-2xl font-bold mt-12 mb-2 text-gray-700">Parallelogram</h3>
+                        <p class="my-1 text-gray-700">Area (A) = b x h</p>
+                        <div class="my-6">
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="b" type="number"
+                                required name="b" id="baseParallelogram">
+                            <label for="b">cm</label>
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="h" type="number"
+                                required name="h" id="heightParallelogram">
+                            <label for="h">cm</label>
+                        </div>
+                        <button class="rounded py-4 w-full bg-sky-600 text-white text-xl mt-7"
+                            onclick="calculateParallelogramArea()" type="submit">Calculate</button>
+                    </div>
+                    <div class="rounded border p-5 md:p-8 2xl:p-11 flex flex-col items-center">
+                        <img class="h-48" src="./images/rhombus.png" alt="rhombus Geometry">
+                        <h3 class="text-2xl font-bold mt-12 mb-2 text-gray-700">Rhombus</h3>
+                        <p class="my-1 text-gray-700">Area (A) = 0.5 x b<sub>1</sub> x b<sub>2</sub></p>
+                        <div class="my-6">
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="b1" type="number"
+                                required name="b1" id="baseRhombus">
+                            <label for="b1">cm</label>
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="b2" type="number"
+                                required name="b2" id="heightRhombus">
+                            <label for="b2">cm</label>
+                        </div>
+                        <button class="rounded py-4 w-full bg-sky-600 text-white text-xl mt-7"
+                            onclick="calculateRhombusArea()" type="submit">Calculate</button>
+                    </div>
+                    <div class="rounded border p-5 md:p-8 2xl:p-11 flex flex-col items-center">
+                        <img class="h-48" src="./images/pentagon.png" alt="pentagon Geometry">
+                        <h3 class="text-2xl font-bold mt-12 mb-2 text-gray-700">Pentagon</h3>
+                        <p class="my-1 text-gray-700">Area (A) = 0.5 x p x b</p>
+                        <div class="my-6">
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="p" type="number"
+                                required name="p" id="paraPentagon">
+                            <label for="p">cm</label>
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="b" type="number"
+                                required name="b" id="heightPentagon">
+                            <label for="b">cm</label>
+                        </div>
+                        <button class="rounded py-4 w-full bg-sky-600 text-white text-xl mt-7"
+                            onclick="calculatePentagonArea()" type="submit">Calculate</button>
+                    </div>
+                    <div class="rounded border p-5 md:p-8 2xl:p-11 flex flex-col items-center">
+                        <img class="h-48" src="./images/ellipse.png" alt="Ellipse Geometry">
+                        <h3 class="text-2xl font-bold mt-12 mb-2 text-gray-700">Ellipse</h3>
+                        <p class="my-1 text-gray-700">Area (A) = &pi;ab</p>
+                        <div class="my-6">
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="a" type="number"
+                                required name="a" id="majorEllipse">
+                            <label for="a">cm</label>
+                            <input class="bg-gray-200 w-16 2xl:w-20 p-2 ml-2 rounded-lg" placeholder="b" type="number"
+                                required name="b" id="minorEllipse">
+                            <label for="b">cm</label>
+                        </div>
+                        <button class="rounded py-4 w-full bg-sky-600 text-white text-xl mt-7"
+                            onclick="calculateEllipseArea()" type="submit">Calculate</button>
+                    </div>
+                </div>
+                <div class="min-h-[500px] w-full border rounded px-11">
+                    <h5 class="text-xl font-bold leading-[30px] text-center underline underline-offset-4 my-7">Area
+                        Calculation</h5>
+                    <ol id="output"></ol>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./js/utilities.js"></script>
+    <script src="./js/geometry.js"></script>
+</body>
+
+</html>
