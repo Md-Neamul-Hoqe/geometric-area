@@ -20,7 +20,7 @@ function outputShow(fieldId, areaFloat) {
   li.setAttribute("class", "flex justify-between items-center gap-2");
   li.innerHTML = `<span>${
     No + 1
-  }. ${title}</span><span><span>${area}</span> cm<sup>2</sup></span><button class="px-[10px] py-[7px]">Convert to m<sup>2</sup></button>`;
+  }. ${title}</span><span><span>${area}</span> cm<sup>2</sup></span><button class="px-[10px] py-[7px] bg-sky-600 text-white font-medium text-[14px]">Convert to m<sup>2</sup></button>`;
   outputArea.appendChild(li);
   console.log(title, ": ", area);
   return;
